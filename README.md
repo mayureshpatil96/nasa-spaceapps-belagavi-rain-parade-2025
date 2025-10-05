@@ -43,11 +43,26 @@ This launches the program that runs the weather math.
 Navigate to the backend folder.
 
 Run Command:
+ 1. Create & Activate Venv	<br>
+ Bash
+  python -m venv backend/venv<br>
 
+  2. Install All Libraries <br>
+  Bash
+  	pip install fastapi uvicorn requests numpy pandas xarray netCDF4 geopy streamlit earthaccess 
+    <br>
 Bash
 
-C:\Users\mayuresh\OneDrive\Desktop\NASA\nasa-spaceapps-belagavi-rain-parade-2025\backend\venv\Scripts\python.exe -m uvicorn app:app --reload
-Wait until you see the message: Application startup complete.
+3.Activate Script <br>
+Bash
+    venv\Script\activate 
+
+4.run the app.py file
+<br>
+Bash
+    uvicorn app:app --reload
+
+
 
 
 <br>
@@ -61,5 +76,6 @@ Run Command:
 
 Bash
 
-C:\Users\mayuresh\OneDrive\Desktop\NASA\nasa-spaceapps-belagavi-rain-parade-2025\backend\venv\Scripts\python.exe -m streamlit run app_frontend.py
+    python.exe -m streamlit run app_frontend.py
+    <br>
 This will automatically open the application in your web browser.
