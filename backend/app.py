@@ -171,3 +171,4 @@ def get_risk_by_location(location_name: str, date: str, duration_hours: int = 6)
 
     except Exception as e:
         return {"error": f"Processing error: {str(e)}"}
+    #new
