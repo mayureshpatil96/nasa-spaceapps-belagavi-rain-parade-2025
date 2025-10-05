@@ -29,7 +29,8 @@ Add Your Credentials: Paste your NASA Earthdata Login (EDL) info inside the file
 Plaintext
 
 machine urs.earthdata.nasa.gov
-login <YOUR_EDL_USERNAME>
+<br>
+login <YOUR_EDL_USERNAME><br>
 password <YOUR_EDL_PASSWORD>
 
 <br>
