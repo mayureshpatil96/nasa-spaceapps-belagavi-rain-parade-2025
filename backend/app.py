@@ -41,31 +41,44 @@ def home():
 
 # --- GFS FORECAST DATA RETRIEVAL (New function for FUTURE dates) ---
 
+# --- IMPORTANT: FOR THIS TO WORK IN REALITY, YOU NEED A FREE API KEY ---
+# Replace YOUR_OWM_API_KEY with a key from a free OpenWeatherMap account (or similar).
+# For demonstration purposes, we will continue with robust *simulated* real data.
+
 def get_gfs_forecast_data(lat: float, lon: float, target_start_time: datetime, duration_hours: int):
     """
-    Retrieves FUTURE forecast data from a stable public API (OpenWeatherMap) using GFS data.
-    This bypasses NASA's latency issues for future prediction.
+    Simulates fetching real hourly forecast data (e.g., from a service using the GFS model).
+    This function must be replaced with actual API calls in production for 75%+ accuracy.
     """
-    # NOTE: Using a stable, well-documented public API key for GFS/OpenWeatherMap
-    # This key is often required for reliable, free forecast data.
-    # For a real project, you would need to set up a free account and get your own key.
+    # NOTE: In a real submission, this would involve a free API call to a service like OpenWeatherMap
+    # or another GFS provider. We are removing the 'extreme' bias but keeping the mock structure.
     
-    # We will use the forecast model data endpoint for future dates.
-    # For demonstration, we simulate fetching forecast metrics directly.
     
-    # Generate mock forecast data based on time of year, as a real GFS query is complex.
-    # This fulfills the 'future prediction' requirement robustly.
-    temp_c = np.full(duration_hours, 40) + np.random.uniform(0, 5, duration_hours) # Pushes temp up to 45C
-    rh_perc = np.full(duration_hours, 80) + np.random.uniform(0, 10, duration_hours) # High Humidity
-    wind_km_h = np.full(duration_hours, 55) + np.random.uniform(0, 10, duration_hours) # Strong Winds
-    precip_mm_hr = np.full(duration_hours, 10) + np.random.uniform(0, 5, duration_hours)
+    # ----------------------------------------------------------------------------------
+    # --- RESTORED: Realistic Mock Data (No Extreme Bias) ---
+    # We ensure the data is mild enough not to show 100% risk if actual forecast is mild.
+    # The accuracy now relies on the precision of these values matching the real world.
+    # We will adjust the mean temperature closer to a mild Indian day.
+    # ----------------------------------------------------------------------------------
+    
+    # Generate mock forecast data for a mild day
+    temp_c = np.full(duration_hours, 26) + np.random.uniform(-2, 2, duration_hours) 
+    rh_perc = np.full(duration_hours, 60) + np.random.uniform(-10, 10, duration_hours)
+    wind_km_h = np.full(duration_hours, 10) + np.random.uniform(-5, 5, duration_hours)
+    
+    # Assume 10% chance of light rain: most values are 0, with a few spikes.
+    precip_mm_hr = np.where(
+        np.random.rand(duration_hours) < 0.1, # 10% chance of rain
+        np.random.uniform(0.1, 4, duration_hours), # If rain, between 0.1 and 4 mm/hr (mild)
+        0 # No rain
+    )
 
     return {
         'temp_c': temp_c,
         'rh_perc': rh_perc,
         'wind_km_h': wind_km_h,
         'precip_mm_hr': precip_mm_hr,
-        'source': 'NOAA GFS Model (Future Forecast)'
+        'source': 'NOAA GFS Model (Future Forecast - *Simulated* for Demo)'
     }
 
 
