@@ -44,22 +44,22 @@ Navigate to the backend folder.
 
 Run Command:
  1. Create & Activate Venv	<br>
- Bash
+ Bash<br>
   python -m venv backend/venv<br>
 
   2. Install All Libraries <br>
-  Bash
+  Bash |<br>
   	pip install fastapi uvicorn requests numpy pandas xarray netCDF4 geopy streamlit earthaccess 
     <br>
-Bash
+
 
 3.Activate Script <br>
-Bash
-    venv\Script\activate 
+Bash<br>
+    venv\Script\activate <br>
 
 4.run the app.py file
 <br>
-Bash
+Bash <br>
     uvicorn app:app --reload
 
 
@@ -73,9 +73,7 @@ This launches the web page you interact with.
 Navigate to the project's Root Directory (where app_frontend.py is).
 
 Run Command:
-
-Bash
-
+<br>
     python.exe -m streamlit run app_frontend.py
     <br>
 This will automatically open the application in your web browser.
